@@ -1,8 +1,42 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(FirstWidget()
+
+  );
 }
+class FirstWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "First State less widget",
+      home: Scaffold(
+        body: Container(
+          color: Colors.red,
+          child: Container(
+            color: Colors.blue,
+            margin: EdgeInsets.all(40),
+          ),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
+class SecondWidget extends StatefulWidget {
+  @override
+  _SecondWidgetState createState() => _SecondWidgetState();
+}
+
+class _SecondWidgetState extends State<SecondWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -26,7 +60,8 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: MyHomePage(title: 'Cédric\'s Learning'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -59,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
       // so that the display can reflect the updated values. If we changed
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
-      _counter++;
+      _counter += 10;
     });
   }
 
@@ -102,14 +137,14 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+              style: Theme.of(context).textTheme.headline1,
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
-        tooltip: 'Increment',
+        tooltip: 'Incrementing',
         child: Icon(Icons.add),
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
