@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(FirstWidget()
+  runApp(SecondWidget()
 
   );
 }
@@ -9,7 +9,7 @@ class FirstWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "First State less widget",
+      title: "Cedric State less widget",
       home: Scaffold(
         body: Container(
           color: Colors.red,
@@ -30,9 +30,35 @@ class SecondWidget extends StatefulWidget {
 }
 
 class _SecondWidgetState extends State<SecondWidget> {
+
+  String title = "";
+  @override
+  void initState() {
+    // TODO: implement initState
+    title = "Clicked on this button";
+    super.initState();
+  }
+
+  void onButtonClicked() {
+    setState(() {
+      title = "Title changed";
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return MaterialApp(
+      title: "Cedric StateFul Widget",
+      home: Scaffold(
+        body: Center(
+          child: RaisedButton(
+              onPressed: onButtonClicked,
+            child: Text(title),
+          ),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
