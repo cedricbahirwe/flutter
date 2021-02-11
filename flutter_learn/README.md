@@ -1,6 +1,6 @@
 # flutter_learn
 
-A new Flutter application for learning flutter and dart
+Flutter Container for my learning curves
 
 ## Getting Started
 
