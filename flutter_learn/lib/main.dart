@@ -31,17 +31,17 @@ class SecondWidget extends StatefulWidget {
 
 class _SecondWidgetState extends State<SecondWidget> {
 
-  String title = "";
+  int count = 0;
   @override
   void initState() {
     // TODO: implement initState
-    title = "Clicked on this button";
+    count = 0;
     super.initState();
   }
 
   void onButtonClicked() {
     setState(() {
-      title = "Title changed";
+      count += 1;
     });
   }
 
@@ -49,11 +49,14 @@ class _SecondWidgetState extends State<SecondWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Cedric StateFul Widget",
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       home: Scaffold(
         body: Center(
           child: RaisedButton(
               onPressed: onButtonClicked,
-            child: Text(title),
+            child: Text(count.toString() + '${ count }c'),
           ),
         ),
       ),
