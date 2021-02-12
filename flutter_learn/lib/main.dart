@@ -2,8 +2,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(GridWidget());
+  runApp(AppBarLesson());
 }
+
+
+class AppBarLesson extends StatefulWidget {
+  @override
+  _AppBarLessonState createState() => _AppBarLessonState();
+}
+
+class _AppBarLessonState extends State<AppBarLesson> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("AppBar's Title"),
+          backgroundColor: Colors.black,
+          elevation: 20,
+          toolbarOpacity: 0.5,
+        ),
+      ),
+    );
+  }
+}
+
 
 class GridWidget extends StatefulWidget {
   @override
