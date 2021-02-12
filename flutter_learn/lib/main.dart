@@ -1,7 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(ContainerWidget());
+  runApp(RowColumnWidget());
+}
+
+
+class RowWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+    children: [
+    Icon(Icons.add),
+    Text("The house of richest", style: Theme.of(context).textTheme.headline6,),
+    ],
+    );
+  }
+}
+
+
+
+class RowColumnWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+        home: Scaffold(
+          appBar: AppBar(title: Text("Cédric\'s Row & Column Widget"),),
+          body: Column(
+            children: [
+              RowWidget(),
+              RowWidget(),
+              RowWidget(),
+
+            ],
+
+
+          ),
+        ),
+    );
+  }
 }
 
 class ContainerWidget extends StatelessWidget {
