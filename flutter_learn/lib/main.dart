@@ -1,10 +1,35 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(SecondWidget()
-
-  );
+  runApp(ContainerWidget());
 }
+
+class ContainerWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Container(
+          // color: Colors.red,
+          child: Text(
+            "Cedric's Container",
+            style: Theme.of(context).textTheme.headline4,
+          ),
+          height: 300,
+          width: 400,
+          alignment: Alignment.centerLeft,
+          padding: EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            color: Colors.red,
+          ),
+          transform: Matrix4.rotationZ(0.75),
+        ),
+      ),
+      debugShowCheckedModeBanner: false,
+    );
+  }
+}
+
 class FirstWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -15,7 +40,7 @@ class FirstWidget extends StatelessWidget {
           color: Colors.red,
           child: Container(
             color: Colors.blue,
-            margin: EdgeInsets.all(40),
+            // margin: EdgeInsets.all(40),
           ),
         ),
       ),
@@ -30,18 +55,17 @@ class SecondWidget extends StatefulWidget {
 }
 
 class _SecondWidgetState extends State<SecondWidget> {
-
-  String title = "";
+  int count = 0;
   @override
   void initState() {
     // TODO: implement initState
-    title = "Clicked on this button";
+    count = 0;
     super.initState();
   }
 
   void onButtonClicked() {
     setState(() {
-      title = "Title changed";
+      count += 1;
     });
   }
 
@@ -49,11 +73,14 @@ class _SecondWidgetState extends State<SecondWidget> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Cedric StateFul Widget",
+      theme: ThemeData(
+        primarySwatch: Colors.red,
+      ),
       home: Scaffold(
         body: Center(
           child: RaisedButton(
-              onPressed: onButtonClicked,
-            child: Text(title),
+            onPressed: onButtonClicked,
+            child: Text(count.toString() + '${count}c'),
           ),
         ),
       ),
@@ -61,8 +88,6 @@ class _SecondWidgetState extends State<SecondWidget> {
     );
   }
 }
-
-
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
