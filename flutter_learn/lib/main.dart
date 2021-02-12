@@ -2,9 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(ListArrayWidget());
+  runApp(StackWidget());
 }
 
+
+
+class StackWidget extends StatefulWidget {
+  @override
+  _StackWidgetState createState() => _StackWidgetState();
+}
+
+class _StackWidgetState extends State<StackWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: Stack(
+          alignment: Alignment.center,
+          children: [
+            Card(color: Colors.red, child: Padding(padding: EdgeInsets.all(200),)),
+            Card(color: Colors.green, child: Padding(padding: EdgeInsets.all(100),)),
+            Card(color: Colors.blue, child: Padding(padding: EdgeInsets.all(50),)),
+            Card(color: Colors.yellow, child: Padding(padding: EdgeInsets.all(30),)),
+            Card(color: Colors.brown, child: Padding(padding: EdgeInsets.all(10),)),
+          ],
+        ),
+      ),
+    );
+  }
+}
 
 
 class ListArrayWidget extends StatefulWidget {
