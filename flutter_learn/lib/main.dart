@@ -2,9 +2,63 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(AppBarActions());
+  runApp(TopBottomTabBar());
 }
 
+class TopBottomTabBar extends StatefulWidget {
+  @override
+  _TopBottomTabBarState createState() => _TopBottomTabBarState();
+}
+
+class _TopBottomTabBarState extends State<TopBottomTabBar> with SingleTickerProviderStateMixin {
+
+  TabController tController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    tController = TabController(length: 3, vsync: this);
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("App Bar"),
+          bottom: TabBar(
+            controller: tController,
+            tabs: [
+              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.supervisor_account),),
+              Tab(icon: Icon(Icons.close),),
+            ],
+          ),
+          backgroundColor: Colors.black,
+        ),
+        body: TabBarView(
+          controller: tController,
+            children: [
+              Center(child: Text("Welcome to Home Page"), ),
+              Center(child: Text("Welcome to User Page"), ),
+              Center(child: Text("Welcome to Logout Page"), ),
+            ]),
+        bottomNavigationBar: Material(
+          color: Colors.black,
+          child: TabBar(
+            controller: tController,
+            tabs: [
+              Tab(icon: Icon(Icons.home),),
+              Tab(icon: Icon(Icons.supervisor_account),),
+              Tab(icon: Icon(Icons.close),),
+            ],
+          ),
+        ),
+      ),
+
+    );
+  }
+}
 
 class AppBarActions extends StatefulWidget {
   @override
