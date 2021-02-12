@@ -16,13 +16,16 @@ class ContainerWidget extends StatelessWidget {
             style: Theme.of(context).textTheme.headline4,
           ),
           height: 300,
-          width: 400,
+          width: 300,
           alignment: Alignment.centerLeft,
           padding: EdgeInsets.all(20),
           decoration: BoxDecoration(
             color: Colors.red,
           ),
-          transform: Matrix4.rotationZ(0.75),
+          foregroundDecoration: BoxDecoration(
+            color: Colors.deepPurple
+          ),
+
         ),
       ),
       debugShowCheckedModeBanner: false,
@@ -34,7 +37,7 @@ class FirstWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Cedric State less widget",
+      title: "Cédric State less widget",
       home: Scaffold(
         body: Container(
           color: Colors.red,
@@ -56,6 +59,7 @@ class SecondWidget extends StatefulWidget {
 
 class _SecondWidgetState extends State<SecondWidget> {
   int count = 0;
+
   @override
   void initState() {
     // TODO: implement initState
