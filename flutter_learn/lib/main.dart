@@ -2,9 +2,44 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(StackWidget());
+  runApp(GridWidget());
 }
 
+class GridWidget extends StatefulWidget {
+  @override
+  _GridWidgetState createState() => _GridWidgetState();
+}
+
+class _GridWidgetState extends State<GridWidget> {
+
+  List<int> items = List();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    for(int i = 0; i<50; i++) {
+      items.add(i);
+    }
+    super.initState();
+  }
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        body: GridView.builder(
+            itemCount: items.length,
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+            itemBuilder: (BuildContext context, int index){
+              return Card(
+                color: Colors.green,
+                child: Padding(padding: EdgeInsets.all(20)),
+              );
+            }
+        ),
+      ),
+    );
+  }
+}
 
 
 class StackWidget extends StatefulWidget {
