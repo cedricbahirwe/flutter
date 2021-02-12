@@ -2,8 +2,49 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(ListWidget());
+  runApp(ListArrayWidget());
 }
+
+
+
+class ListArrayWidget extends StatefulWidget {
+  @override
+  _ListArrayWidgetState createState() => _ListArrayWidgetState();
+}
+
+class _ListArrayWidgetState extends State<ListArrayWidget> {
+  List<int> items = List();
+
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    for(int i=0; i<15; i++) {
+        items.add(i);
+    }
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Cedric's List Widget"), centerTitle: false,),
+        body: ListView.builder(
+          itemCount: items.length,
+            itemBuilder: (BuildContext context, int index){
+            return ListTile(
+              title: Text("Item number $index"),
+              trailing: Icon(Icons.arrow_forward_ios_rounded),
+            );
+
+            })
+      ),
+    );
+  }
+}
+
 
 class ListWidget extends StatelessWidget {
   @override
