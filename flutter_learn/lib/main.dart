@@ -2,7 +2,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(AppBarLesson());
+  runApp(AppBarActions());
+}
+
+
+class AppBarActions extends StatefulWidget {
+  @override
+  _AppBarActionsState createState() => _AppBarActionsState();
+}
+
+class _AppBarActionsState extends State<AppBarActions> {
+
+  String mText = " ";
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("AppBar's Widget"),
+          centerTitle: false,
+          leading: Icon(Icons.menu),
+          actions: [
+            IconButton(icon: Icon(Icons.arrow_forward_ios_rounded), onPressed: (){
+              setState(() {
+                mText = "Cédric's arrow";
+              });
+            }),
+            IconButton(icon: Icon(Icons.close), onPressed: (){
+              setState(() {
+                mText = "Cédric's close";
+              });
+            })
+          ],
+        ),
+        body: Center(
+          child: Text(mText),
+        ),
+      ),
+    );  }
 }
 
 
