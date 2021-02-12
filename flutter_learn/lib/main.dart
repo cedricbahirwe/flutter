@@ -2,7 +2,34 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 void main() {
-  runApp(RowColumnWidget());
+  runApp(ListWidget());
+}
+
+class ListWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text("Cedric's List Widget"), centerTitle: false,),
+        body: ListView(
+          children: [
+            ListTile(
+              title: Text("Item 1"),
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              title: Text("Item 2"),
+              trailing: Icon(Icons.add),
+            ),
+            ListTile(
+              title: Text("Item 3"),
+              trailing: Icon(Icons.add),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
 }
 
 
@@ -17,7 +44,6 @@ class RowWidget extends StatelessWidget {
     );
   }
 }
-
 
 
 class RowColumnWidget extends StatelessWidget {
